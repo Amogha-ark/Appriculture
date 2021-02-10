@@ -1,0 +1,170 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V2</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method="POST">
+					<span class="login100-form-title p-b-26">
+						Welcome
+					</span>
+					<span class="login100-form-title p-b-48">
+						<i class="zmdi zmdi-font"></i>
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input class="input100" type="text" name="email">
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass">
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Login
+							</button>
+						</div>
+					</div>
+
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="static/js/main.js"></script>
+
+
+
+	{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="jumbotron jumbotron-fliud" style="height: 50%; width: 40%; line-height: 28px; border: 5px solid lightblue; padding: 15px;margin-left: 100mm;margin-right: 70mm;">
+<div class=content-section>
+
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+		<fieldset class="form-group">
+			<div class="first">
+			<h5><center>Login Now</center></h5>
+		</div>
+			<div class="form-group">
+				{{ form.email.label(class="form-control-label") }}
+				{% if form.email.errors %}
+					{{ form.email(class="form-control form-control-lg is-invalid")}}
+					<div class="invalid-feedback">
+						{% for error in form.email.errors %}
+						<span>{{ error }} </span>
+						{% endfor %}
+					</div>
+				{% else %} 
+					{{ form.email(class="form-control form-control-lg")}}
+				{% endif %}	
+			</div>
+			<div class="form-group">
+				{{ form.password.label(class="form-control-label") }}
+				{% if form.password.errors %}
+					{{ form.password(class="form-control form-control-lg is invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.password.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ form.password(class="form-control form-control-lg") }}
+				{% endif %}
+			</div>
+				
+				
+			
+		</fieldset>
+		<div class="form-group">
+			{{ form.submit(class="btn btn-outline-info") }}
+		</div>
+    </form>
+</div>
+</div> -->
+

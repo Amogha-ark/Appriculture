@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<style>
+  .container{
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+<div class="container" style="height: auto; width: auto; line-height: 28px; border: 5px solid lightblue; padding: auto;">
+
+<div class=content-section>
+
+	<form method="POST" action="">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Enter RTC Number</label>
+            <div class= "col sm">
+            <input type="text" class="form-control " id="name" aria-describedby="emailHelp" name = "name">
+            </div>
+            <small id="name" class="form-text text-muted">We'll never share your RTC number with anyone else.</small>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+
+
+
+{% endblock content %}

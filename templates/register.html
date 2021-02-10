@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel = "stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+
+<div class="wrapper" style="margin-top: 30mm;">
+    
+        	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+		<fieldset class="form-group">
+			<div class="first">
+			<h5><center><b>Register</b></center></h5>
+    </div>
+    <hr>
+        <div class="form-group">
+            {{ form.username.label(class="form-control-label") }}
+            {% if form.username.errors %}
+                {{ form.username(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.username.errors %}
+                    <span>{{ error }} </span>
+                    {% endfor %}
+                </div>
+            {% else %} 
+                {{ form.username(class="form-control form-control-lg")}}
+            {% endif %}	
+        </div>
+
+			<div class="form-group">
+				{{ form.number.label(class="form-control-label") }}
+				{% if form.number.errors %}
+					{{ form.number(class="form-control form-control-lg is-invalid")}}
+					<div class="invalid-feedback">
+						{% for error in form.number.errors %}
+						<span>{{ error }} </span>
+						{% endfor %}
+					</div>
+				{% else %} 
+					{{ form.number(class="form-control form-control-lg")}}
+				{% endif %}	
+			</div>
+			<div class="form-group">
+				{{ form.phoneno.label(class="form-control-label") }}
+				{% if form.phoneno.errors %}
+					{{ form.phoneno(class="form-control form-control-lg is invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.phoneno.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ form.phoneno(class="form-control form-control-lg") }}
+				{% endif %}
+            </div>
+            
+            <div class="form-group">
+				{{ form.soil.label(class="form-control-label") }}
+				{% if form.soil.errors %}
+					{{ form.soil(class="form-control form-control-lg is invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.soil.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ form.soil(class="form-control form-control-lg") }}
+				{% endif %}
+			</div>
+            
+		</fieldset>
+		<div class="form-group">
+		<center>	{{ form.submit(class="btn btn-outline-info") }}</center>
+		</div>
+    </form>
+
+</div>
+
+
+</div>
+</div>
+
+{% endblock content %}

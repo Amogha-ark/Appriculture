@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+{% block content %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome,  !! Admin </h1> 
+        
+        <hr class="my-4">
+        <p class="lead">A new user register here below.</p>
+        <a class="btn btn-primary btn-lg" href="{{url_for('register')}}" role="button">Register here</a>
+        <hr>
+        <p>Already have an account ? Login here</p>
+        {%if session['soil']%}
+            <p>You are logged in !!</p>
+        {%else%}
+            <a class="btn btn-success btn-lg" href="{{url_for('loginuser')}}" role="button">RTC No</a>
+        {%endif%}
+    </div>
+</div>
+    
+<hr class="my-4">
+<p class="lead"><center>A table which provides a amount of quantity aviable so far !</center></p>
+<hr>
+<div class="container">
+<div class="shadow-lg p-5 mb-10 bg-white rounded " style = "margin-top: auto;margin-bottom: auto;" >
+  <div class="container " style="text-align: center;">
+    <div class="row">
+        
+            <table class="table table-hover " style="align-content: center;">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Crops</th>
+                    <th scope="col">Quantity (in tones)</th>
+                    <th scope="col">Maximum</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Sugarcane</td>
+                    <td>{{(quantity.results[0] * 6000/100) | round(3,'common')}}</td>
+                    <td>2000</td>
+                  </tr>                                                                                     
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Rice</td>
+                    <td>{{(quantity.results[1]* 10000/100)|round(3,'common')}}</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td >Maize</td>
+                    <td>{{(quantity.results[2] *2000/100) |round(3,'common')}}</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td >wheat</td>
+                    <td>{{(quantity.results[3] * 3000/100) | round(3,'floor')}}</td>
+                    <td>50000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td >Barley</td>
+                    <td>{{(quantity.results[4] * 2500/100) | round(3,'floor')}}</td>
+                    <td>40000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td >pulses</td>
+                    <td>{{(quantity.results[5] * 1500/100) | round(3,'floor')}}</td>
+                    <td>1000</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+  </div>
+</div>
+</div>
+<div style="margin-bottom: 50mm;"></div>
+
+
+<script>
+// var tooltipEnabled = true;
+// 	var results = JSON.parse('{{ quantity | tojson | safe}}');
+	
+	
+   
+//         console.log(results.results);
+       
+//         var options = {
+
+
+//         chart: {
+//             type: 'line',
+			
+			
+//         },
+
+		
+//         title: {
+//                 text: 'Crops Aviability'
+//             },
+//             credits:{
+//                 enabled :false
+// 			},
+// 			colors : ['#FF0000'],
+//         xAxis: {
+//             categories: ['Sugarcane','Rice','Maize','wheat','Barley','pulses'],
+//             max:5,
+//             title: {
+//                 text: 'Crops',
+                
+//             }
+            
+//         },
+// 		labels: {
+//             style: {
+//                 color: '#525151',
+//                 font: '12px Helvetica',
+//                 fontWeight: 'bold'
+//             },
+//             formatter: function () {
+//                 return this.value;
+//             }
+//         },
+//         yAxis:{
+//             max:100,
+//             title: {
+//                 text: 'Amount of Quantity'
+//             },
+//         },
+//         plotOptions: {
+//             series: {
+//                 pointWidth: 50,
+//                 groupPadding: 0
+//             }
+//         },
+//         series: [{
+//             data: results.results,
+//             name: 'Crops'
+//         }]
+//     };
+    
+	
+    
+// 	var chart = Highcharts.chart('container', options);
+//   // var chart1 = Highcharts.chart('container1',options)
+
+</script>
+{% endblock content %}

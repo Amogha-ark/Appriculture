@@ -1,0 +1,4 @@
+mysql_host: 'localhost'
+mysql_user: 'amogha'
+mysql_password: 'arjun2004'
+mysql_db: 'agriculture'

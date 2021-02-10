@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+{%if crops[0]%}
+<div class="jumbotron">
+<form method="POST" action="">
+
+    <fieldset class="form-group">
+      {%for i in crops%}
+      <div class="form-group" style="padding-top: 10mm;">
+        <label for="formGroupExampleInput">Enter the Total amount of quantity  you have produced of {{i}} </label>
+        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Enter the Quantity" name="{{i}}">
+      </div>
+</fieldset>
+  {%endfor%}
+
+<button type="submit" class="btn btn-primary">Upload</button>
+</form>
+</div>
+{%else%}
+<div class="jumbotron">
+  <div class="container">
+    OOP's there is no previous crops !! 
+  </div>
+</div>
+{%endif%}
+{% endblock content %}

@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+<link href="static/assets/img/favicon.png" rel="icon">
+  <link href="staticassets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+{% block content %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Hello {{session['username']}} !!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>Hello {{session['username']}} please click here to logout </p>
+    <a class="btn btn-primary btn-lg" href="{{url_for('logoutuser')}}" role="button"> Logout </a>
+  </div>
+</div>
+
+  
+<form method="POST" action="">
+
+
+                  {%if crops%}
+                        {%if crops !=False%}
+                        <div class="jumbotron jumbotron-fliud" style="height: 50%; width: 40%; line-height: 28px; border: 5px solid lightblue; padding: 15px;margin-left: auto;
+                        margin-right: auto;">
+                          <div class=content-section>
+                        <h4><i> <center>Your have entered {{crops}} crop so far !!</center></i></h4>
+                                        <legend class="col-form-label ">To enter the details of previous crop click here</legend>
+                                        <a href="{{url_for('previous')}}" class="btn btn-outline-info">Click Me</a> 
+                                        
+                                      
+                                      <hr>
+                                      
+                                      
+                              </div>
+    </div>        
+                    {%endif%}
+                    {%endif%}     
+              <!-- Button trigger modal -->
+            
+
+              <div class="jumbotron jumbotron-fliud" style="height: 50%; width: 40%; line-height: 28px; border: 5px solid lightblue; padding: 15px;margin-left: auto;
+              margin-right: auto;">
+                <div class=content-section>
+                  <legend >Graph updated</legend>
+                  <a href="{{url_for('graph')}}" class="btn btn-outline-dark">Show</a> 
+                  <hr>
+              <legend class="col-form-label"><i>Select the crop you are about to grow from the below list</i></legend>
+              
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios1" value={{arr[0]}} checked>
+                  <label class="form-check-label" for="gridRadios1">
+                    {{arr[0]}}
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios2" value={{arr[1]}}>
+                  <label class="form-check-label" for="gridRadios2">
+                    {{arr[1]}}
+                  </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gridRadios1" id="gridRadios2" value={{arr[2]}}>
+                    <label class="form-check-label" for="gridRadios2">
+                        {{arr[2]}}
+                    </label>
+                  </div>
+               
+              
+              <div class="form-group" style="padding-top: 10mm;">
+        <label for="formGroupExampleInput">Enter your cropfield measurment(In acres)</label>
+       
+        <input type="number" class="form-control col col-sm" id="formGroupExampleInput" placeholder="Enter the Acres" name="amount">
+        <br>
+        <button class="btn btn-primary " type="button" id="btn1" data-toggle="modal" data-target="#exampleModal">check</button>
+      </div>
+      
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Estimated Production !!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              OOP's there is no crop
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios3" id="gridRadios3" value="True">
+            <label class="form-check-label" for="gridRadios3">
+                confirm your land in acres(acr).
+            </label>
+          </div>
+        <br>
+        
+      
+
+ 
+</fieldset>
+<div class="form-group ">
+    
+  <button type="submit" id ="btn2" class="btn btn-outline-success">Upload</button>
+     
+  </form>
+</div>
+</div>
+</div>
+  
+<script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>   
+  {% endblock content %}
